@@ -11,15 +11,15 @@ pub contract CryptoGeeks: NonFungibleToken {
     pub let id: UInt64
 
     pub let name: String
-    pub let favouriteFood: String
-    pub let luckyNumber: Int
+    pub let favouritePet: String
+    pub let PureNumber: Int
 
-    init(_name: String, _favouriteFood: String, _luckyNumber: Int) {
+    init(_name: String, _favouritePet: String, _PureNumber: Int) {
       self.id = self.uuid
 
       self.name = _name
-      self.favouriteFood = _favouriteFood
-      self.luckyNumber = _luckyNumber
+      self.favouritePet = _favouritePet
+      self.PureNumber = _PureNumber
     }
   }
 
@@ -81,8 +81,8 @@ pub contract CryptoGeeks: NonFungibleToken {
 
   pub resource Minter {
 
-    pub fun createNFT(name: String, favouriteFood: String, luckyNumber: Int): @NFT {
-      return <- create NFT(_name: name, _favouriteFood: favouriteFood, _luckyNumber: luckyNumber)
+    pub fun createNFT(name: String, favouritePet: String, PureNumber: Int): @NFT {
+      return <- create NFT(_name: name, _favouritePet: favouritePet, _PureNumber: PureNumber)
     }
 
     access(contract)  fun createMinter(): @Minter {
