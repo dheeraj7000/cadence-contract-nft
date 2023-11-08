@@ -1,7 +1,7 @@
 import CryptoGeeks from 0x09
 import NonFungibleToken from 0x09
 
-transaction(recipient: Address, name: String, favouriteFood: String, luckyNumber: Int) {
+transaction(recipient: Address, name: String, favouritePet: String, PureNumber: Int) {
 
   prepare(signer: AuthAccount) {
     // Get a reference to the `Minter`
@@ -14,7 +14,7 @@ transaction(recipient: Address, name: String, favouriteFood: String, luckyNumber
                                   ?? panic("The recipient does not have a Collection.")
 
     // mint the NFT using the reference to the `Minter` and pass in the metadata
-    let nft <- minter.createNFT(name: name, favouriteFood: favouriteFood, luckyNumber: luckyNumber)
+    let nft <- minter.createNFT(name: name, favouritePet: favouritePet, PureNumber: PureNumber)
 
     // deposit the NFT in the recipient's Collection
     recipientsCollection.deposit(token: <- nft)
